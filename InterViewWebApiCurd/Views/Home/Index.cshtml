@@ -1,0 +1,33 @@
+﻿@model List<InterViewWebApiCurd.DB_Context.Employee>
+
+<table class="table table-sm">
+    <thead>
+        <tr><td><a href="@Url.Action("Create", "Home")">Create Employee</a></td></tr>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Emp_Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+<tbody>
+    <tr>
+
+        <td>@item.id</td>
+        <td>@item.Emp_code</td>
+        <td>@item.Name</td>
+        <td>@item.DOB</td>
+        <td><a href="@Url.Action("Edit", "Home", new {item.id})" class="btn btn-success">Edit</a></td>
+        <td><a href="@Url.Action("Delete", "Home", new {id=item.id})" class="btn btn-danger">Delete</a></td>
+
+    </tr>
+</tbody>
+    }
+
+    
+        </table>
